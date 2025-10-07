@@ -35,8 +35,9 @@ public class FileData : MonoBehaviour
         playerData.level = playerStats.level;
         playerData.experience = playerStats.experience;
         playerData.score = playerStats.score;
-        playerData.currentGameLevel = playerStats.currentGameLevel; 
-        playerData.playerPos = playerObject.transform.position;
+        playerData.defense = playerStats.defense;
+        playerData.strenght = playerStats.strenght;
+        playerData.currentLevelScene = playerStats.currentLevelScene;
 
         Debug.Log("Data saved"); 
 
@@ -59,7 +60,9 @@ public class FileData : MonoBehaviour
             playerStats.level = data.level;
             playerStats.experience = data.experience;
             playerStats.score = data.score;
-            playerObject.transform.position = data.playerPos;
+            playerStats.defense = data.defense; 
+            playerStats.strenght = data.strenght;
+            playerStats.currentLevelScene = data.currentLevelScene; 
 
             Debug.Log("Data Loaded"); 
         }

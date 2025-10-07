@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-
 public class PlayerStats : MonoBehaviour
 {
     [Header("Player stats")]
@@ -9,7 +8,9 @@ public class PlayerStats : MonoBehaviour
     public int level; // This is the level of the player
     public int experience;
     public int score;
-    public int currentGameLevel; // This is the level of the game
+    public int defense; 
+    public int strenght;
+    public int currentLevelScene; 
 
     private int currentHP;
     public TextMeshPro healthText;
@@ -23,10 +24,10 @@ public class PlayerStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (health < 0)
+        if (health < 0)  // avoid the player having negative health
             health = 0;
 
-        if(health > maxHealth)
+        if(health > maxHealth)  // Avoid having more hp than the max
             health = maxHealth;
 
 
@@ -40,18 +41,21 @@ public class PlayerStats : MonoBehaviour
 
     public void SetStartingStats() 
     {
+        //Setting the starting values when start the game
         maxHealth = 10;
         health = maxHealth;
         currentHP = health;
         level = 1;
         experience = 0;
         score = 0;
+        defense = 0;
+        currentLevelScene = 1; 
         DisplayText();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        // If it get hit by the enemy's bullet, loses health and score
         if (collision.gameObject.CompareTag("EnemyBullet")) 
         {
             health -= 2;
@@ -72,18 +76,13 @@ public class PlayerStats : MonoBehaviour
 
     public void GettingExperience(int value) 
     {
-        experience += value;
-
-        if(experience >= 100) 
-        {
-            level++;
-            experience = experience % 100; 
-        }
+        experience += value;       
 
     }
 
     public void DisplayText() 
     {
+        //Displaying the player health
         healthText.text = "HP: " + health + " / " + maxHealth; 
     }
 }

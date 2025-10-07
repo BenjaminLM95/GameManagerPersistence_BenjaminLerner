@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-[SerializeField]
+[System.Serializable]
 public class PlayerData
 {
     public int maxHealth;
@@ -9,8 +9,9 @@ public class PlayerData
     public int level;  // This is the level of the player
     public int experience;
     public int score;
-    public int currentGameLevel; // This is the level of the game
-    public Vector3 playerPos;
+    public int defense; 
+    public int strenght;
+    public int currentLevelScene; 
     
 
     

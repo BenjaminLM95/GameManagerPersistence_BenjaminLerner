@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-
+    // References
     private FileData fileData;
     private PlayerStats playerStats;
     public GameObject playerUI; 
@@ -28,16 +28,19 @@ public class LevelManager : MonoBehaviour
         {
             SceneManager.LoadScene("Level_1");
             playerUI.gameObject.SetActive(true);
+            playerStats.currentLevelScene = 1;
         }
         if (Input.GetKeyDown(KeyCode.Alpha3)) 
         {
             SceneManager.LoadScene("Level_2");
             playerUI.gameObject.SetActive(true);
+            playerStats.currentLevelScene = 2;
         }
         if (Input.GetKeyDown(KeyCode.Alpha4)) 
         {
             SceneManager.LoadScene("Level_3");
             playerUI.gameObject.SetActive(true);
+            playerStats.currentLevelScene = 3;
         }
 
 
@@ -55,16 +58,12 @@ public class LevelManager : MonoBehaviour
         playerUI.gameObject.SetActive(true);
     }
 
-    public void LoadGame() 
+   public void LoadResumeGame() 
     {
         fileData.Load();
-        GoToSavedLevel();
-    }
 
-
-    public void GoToSavedLevel() 
-    {
-        switch (playerStats.currentGameLevel) 
+        //Make the player jump into the last scene saved
+        switch (playerStats.currentLevelScene) 
         {
             case 1:
                 SceneManager.LoadScene("Level_1");
@@ -81,7 +80,8 @@ public class LevelManager : MonoBehaviour
             default:
                 SceneManager.LoadScene("Level_1");
                 playerUI.gameObject.SetActive(true);
-                break; 
+                break;
         }
     }
+            
 }

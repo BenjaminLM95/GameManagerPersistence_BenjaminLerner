@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
         if (canRotate)
         {
+            // Help to rotate the tank and aim different directions
             if (Input.GetKey(KeyCode.U))
             {
                 transform.Rotate(0.0f, 0.0f, 90.0f * Time.deltaTime, Space.World);

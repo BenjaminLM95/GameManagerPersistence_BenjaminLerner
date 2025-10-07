@@ -112,6 +112,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4495889378412055939}
     m_Modifications:
+    - target: {fileID: 331494654732671590, guid: 2f532a952f71da543a1367b0c3e1a079, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3633424972098829468, guid: 2f532a952f71da543a1367b0c3e1a079, type: 3}
       propertyPath: muzzleObject
       value: 
